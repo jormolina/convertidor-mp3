@@ -89,58 +89,57 @@
             backface-visibility: visible;
         }
         .logo-front {
-            background: linear-gradient(145deg, #0097a7, #00bcd4, #00e5ff);
+            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a1a 40%, transparent 41%),
+                        conic-gradient(from 0deg, #0097a7, #00bcd4, #18ffff, #00e5ff, #00acc1, #0097a7, #00bcd4, #18ffff, #00e5ff, #00acc1, #0097a7);
             box-shadow: 0 15px 35px rgba(0,188,212,0.4), 0 0 60px rgba(0,188,212,0.3),
-                inset 0 2px 0 rgba(255,255,255,0.3), inset 0 -2px 0 rgba(0,0,0,0.2);
-            color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            border: 2px solid rgba(100,255,255,0.3);
+                inset 0 2px 0 rgba(255,255,255,0.15);
+            border: 2px solid rgba(100,255,255,0.2);
             animation: logoGlow 6s ease-in-out infinite;
             overflow: hidden;
-        }
-        .music-note {
-            font-size: 55px;
-            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
-            animation: noteWobble 4s ease-in-out infinite;
-            line-height: 1;
-        }
-        @keyframes noteWobble {
-            0%, 100% { transform: rotate(-5deg) scale(1); }
-            25% { transform: rotate(3deg) scale(1.05); }
-            50% { transform: rotate(-3deg) scale(1); }
-            75% { transform: rotate(5deg) scale(1.03); }
-        }
-        .music-note .note-head {
-            display: inline-block;
-            width: 28px; height: 22px;
-            background: white;
-            border-radius: 50%;
-            transform: rotate(-20deg);
             position: relative;
-            box-shadow: inset -3px -3px 6px rgba(0,100,150,0.3), 0 2px 4px rgba(0,0,0,0.2);
         }
-        .music-note .note-stem {
+        .logo-front::before {
+            content: '';
             position: absolute;
-            right: 2px; top: -35px;
-            width: 4px; height: 40px;
-            background: linear-gradient(to top, white, #b3e5fc);
-            border-radius: 2px;
+            top: 50%; left: 50%;
+            width: 18px; height: 18px;
+            background: radial-gradient(circle, #0a1628 30%, #00bcd4 31%, #00bcd4 35%, transparent 36%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
         }
-        .music-note .note-flag {
+        .logo-front::after {
+            content: '';
             position: absolute;
-            right: -2px; top: -35px;
-            width: 18px; height: 20px;
-            border-right: 4px solid white;
-            border-top: 4px solid white;
-            border-radius: 0 12px 0 0;
+            top: 50%; left: 50%;
+            width: 70px; height: 70px;
+            border: 1px solid rgba(100,200,255,0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(0,188,212,0.1);
         }
-        .music-note .double-flag {
+        .cd-shine {
             position: absolute;
-            right: -2px; top: -28px;
-            width: 14px; height: 16px;
-            border-right: 4px solid white;
-            border-top: 4px solid white;
-            border-radius: 0 10px 0 0;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.1) 100%);
+            border-radius: 20px;
+            pointer-events: none;
         }
+        .cd-rings {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 90px; height: 90px;
+            transform: translate(-50%, -50%);
+        }
+        .cd-ring {
+            position: absolute;
+            border: 1px solid rgba(100,200,255,0.1);
+            border-radius: 50%;
+            top: 50%; left: 50%;
+        }
+        .cd-ring:nth-child(1) { width: 50px; height: 50px; transform: translate(-50%, -50%); }
+        .cd-ring:nth-child(2) { width: 70px; height: 70px; transform: translate(-50%, -50%); }
+        .cd-ring:nth-child(3) { width: 85px; height: 85px; transform: translate(-50%, -50%); }
         @keyframes logoGlow {
             0%, 100% { box-shadow: 0 15px 35px rgba(0,188,212,0.4), 0 0 60px rgba(0,188,212,0.3), inset 0 2px 0 rgba(255,255,255,0.3); }
             50% { box-shadow: 0 15px 50px rgba(0,188,212,0.6), 0 0 80px rgba(0,188,212,0.5), inset 0 2px 0 rgba(255,255,255,0.4); }
@@ -460,12 +459,11 @@
                 <div class="logo-glow"></div>
                 <div class="logo-inner">
                     <div class="logo-face logo-front">
-                        <div class="music-note">
-                            <div class="note-head">
-                                <div class="note-stem"></div>
-                                <div class="note-flag"></div>
-                                <div class="double-flag"></div>
-                            </div>
+                        <div class="cd-shine"></div>
+                        <div class="cd-rings">
+                            <div class="cd-ring"></div>
+                            <div class="cd-ring"></div>
+                            <div class="cd-ring"></div>
                         </div>
                     </div>
                 </div>
