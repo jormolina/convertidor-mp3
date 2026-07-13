@@ -95,6 +95,51 @@
             color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.3);
             border: 2px solid rgba(100,255,255,0.3);
             animation: logoGlow 6s ease-in-out infinite;
+            overflow: hidden;
+        }
+        .music-note {
+            font-size: 55px;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+            animation: noteWobble 4s ease-in-out infinite;
+            line-height: 1;
+        }
+        @keyframes noteWobble {
+            0%, 100% { transform: rotate(-5deg) scale(1); }
+            25% { transform: rotate(3deg) scale(1.05); }
+            50% { transform: rotate(-3deg) scale(1); }
+            75% { transform: rotate(5deg) scale(1.03); }
+        }
+        .music-note .note-head {
+            display: inline-block;
+            width: 28px; height: 22px;
+            background: white;
+            border-radius: 50%;
+            transform: rotate(-20deg);
+            position: relative;
+            box-shadow: inset -3px -3px 6px rgba(0,100,150,0.3), 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .music-note .note-stem {
+            position: absolute;
+            right: 2px; top: -35px;
+            width: 4px; height: 40px;
+            background: linear-gradient(to top, white, #b3e5fc);
+            border-radius: 2px;
+        }
+        .music-note .note-flag {
+            position: absolute;
+            right: -2px; top: -35px;
+            width: 18px; height: 20px;
+            border-right: 4px solid white;
+            border-top: 4px solid white;
+            border-radius: 0 12px 0 0;
+        }
+        .music-note .double-flag {
+            position: absolute;
+            right: -2px; top: -28px;
+            width: 14px; height: 16px;
+            border-right: 4px solid white;
+            border-top: 4px solid white;
+            border-radius: 0 10px 0 0;
         }
         @keyframes logoGlow {
             0%, 100% { box-shadow: 0 15px 35px rgba(0,188,212,0.4), 0 0 60px rgba(0,188,212,0.3), inset 0 2px 0 rgba(255,255,255,0.3); }
@@ -414,7 +459,15 @@
             <div class="logo-3d">
                 <div class="logo-glow"></div>
                 <div class="logo-inner">
-                    <div class="logo-face logo-front">MP3</div>
+                    <div class="logo-face logo-front">
+                        <div class="music-note">
+                            <div class="note-head">
+                                <div class="note-stem"></div>
+                                <div class="note-flag"></div>
+                                <div class="double-flag"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="logo-shadow"></div>
             </div>
