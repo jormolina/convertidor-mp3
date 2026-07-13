@@ -89,58 +89,90 @@
             backface-visibility: visible;
         }
         .logo-front {
-            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a1a 40%, transparent 41%),
-                        conic-gradient(from 0deg, #ffffff, #e0e0e0, #ffffff, #f5f5f5, #ffffff, #e0e0e0, #ffffff, #f5f5f5, #ffffff, #e0e0e0, #ffffff);
-            box-shadow: 0 15px 35px rgba(0,188,212,0.4), 0 0 60px rgba(180,180,180,0.3),
-                inset 0 2px 0 rgba(255,255,255,0.15);
-            border: 2px solid rgba(255,255,255,0.2);
+            background: white;
+            box-shadow: 0 15px 35px rgba(0,188,212,0.3), 0 0 40px rgba(0,100,200,0.15),
+                inset 0 2px 0 rgba(255,255,255,0.5);
+            border: 2px solid rgba(100,200,255,0.3);
             animation: logoGlow 6s ease-in-out infinite;
             overflow: hidden;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .logo-front::before {
-            content: '';
+        .cd-shine { display: none; }
+        .cd-rings { display: none; }
+        .notes-group {
+            position: relative;
+            width: 70px;
+            height: 65px;
+        }
+        .note {
             position: absolute;
-            top: 50%; left: 50%;
-            width: 18px; height: 18px;
-            background: radial-gradient(circle, #ff6f00 30%, #ff8f00 31%, #ff8f00 35%, transparent 36%);
+        }
+        .note-left {
+            left: 0; top: 15px;
+        }
+        .note-right {
+            left: 28px; top: 0;
+        }
+        .note .note-head {
+            width: 18px; height: 14px;
+            background: linear-gradient(135deg, #7c4dff, #651fff, #512da8);
             border-radius: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            box-shadow: 0 0 10px rgba(255,111,0,0.5);
+            transform: rotate(-20deg);
+            box-shadow: 0 2px 6px rgba(101,31,255,0.4);
         }
-        .logo-front::after {
-            content: '';
+        .note-left .note-head {
+            background: linear-gradient(135deg, #7c4dff, #651fff, #512da8);
+            box-shadow: 0 2px 6px rgba(101,31,255,0.3);
+        }
+        .note-right .note-head {
+            background: linear-gradient(135deg, #536dfe, #304ffe, #1a237e);
+            box-shadow: 0 2px 6px rgba(48,79,254,0.3);
+        }
+        .note .note-stem {
             position: absolute;
-            top: 50%; left: 50%;
-            width: 70px; height: 70px;
-            border: 1px solid rgba(100,200,255,0.15);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 20px rgba(0,188,212,0.1);
+            right: 1px; top: -28px;
+            width: 3px; height: 30px;
+            border-radius: 2px;
         }
-        .cd-shine {
+        .note-left .note-stem {
+            background: linear-gradient(to top, #7c4dff, #b388ff);
+        }
+        .note-right .note-stem {
+            background: linear-gradient(to top, #536dfe, #8c9eff);
+        }
+        .note .note-beam {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.1) 100%);
-            border-radius: 20px;
-            pointer-events: none;
+            top: -28px;
+            height: 4px;
+            border-radius: 2px;
         }
-        .cd-rings {
+        .note-left .note-beam {
+            right: 1px; width: 28px;
+            background: #7c4dff;
+        }
+        .note-right .note-beam {
+            right: 1px; width: 22px;
+            background: #536dfe;
+            top: -20px;
+        }
+        .note .note-flag {
             position: absolute;
-            top: 50%; left: 50%;
-            width: 90px; height: 90px;
-            transform: translate(-50%, -50%);
+            right: -1px; top: -28px;
+            width: 12px; height: 16px;
+            border-right: 3px solid;
+            border-top: 3px solid;
+            border-radius: 0 8px 0 0;
         }
-        .cd-ring {
-            position: absolute;
-            border: 1px solid rgba(200,200,200,0.2);
-            border-radius: 50%;
-            top: 50%; left: 50%;
+        .note-left .note-flag {
+            border-color: #7c4dff;
         }
-        .cd-ring:nth-child(1) { width: 50px; height: 50px; transform: translate(-50%, -50%); }
-        .cd-ring:nth-child(2) { width: 70px; height: 70px; transform: translate(-50%, -50%); }
-        .cd-ring:nth-child(3) { width: 85px; height: 85px; transform: translate(-50%, -50%); }
+        .note-right .note-flag {
+            border-color: #536dfe;
+            top: -20px;
+        }
         @keyframes logoGlow {
             0%, 100% { box-shadow: 0 15px 35px rgba(0,188,212,0.4), 0 0 60px rgba(0,188,212,0.3), inset 0 2px 0 rgba(255,255,255,0.3); }
             50% { box-shadow: 0 15px 50px rgba(0,188,212,0.6), 0 0 80px rgba(0,188,212,0.5), inset 0 2px 0 rgba(255,255,255,0.4); }
@@ -460,11 +492,19 @@
                 <div class="logo-glow"></div>
                 <div class="logo-inner">
                     <div class="logo-face logo-front">
-                        <div class="cd-shine"></div>
-                        <div class="cd-rings">
-                            <div class="cd-ring"></div>
-                            <div class="cd-ring"></div>
-                            <div class="cd-ring"></div>
+                        <div class="notes-group">
+                            <div class="note note-left">
+                                <div class="note-head"></div>
+                                <div class="note-stem"></div>
+                                <div class="note-beam"></div>
+                                <div class="note-flag"></div>
+                            </div>
+                            <div class="note note-right">
+                                <div class="note-head"></div>
+                                <div class="note-stem"></div>
+                                <div class="note-beam"></div>
+                                <div class="note-flag"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
