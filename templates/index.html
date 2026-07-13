@@ -104,74 +104,67 @@
         .cd-rings { display: none; }
         .notes-group {
             position: relative;
-            width: 70px;
-            height: 65px;
+            width: 80px;
+            height: 75px;
         }
         .note {
             position: absolute;
         }
         .note-left {
-            left: 0; top: 15px;
+            left: 0; top: 20px;
         }
         .note-right {
-            left: 28px; top: 0;
+            left: 32px; top: 0;
         }
         .note .note-head {
-            width: 18px; height: 14px;
-            background: linear-gradient(135deg, #7c4dff, #651fff, #512da8);
+            width: 24px; height: 18px;
             border-radius: 50%;
             transform: rotate(-20deg);
-            box-shadow: 0 2px 6px rgba(101,31,255,0.4);
         }
         .note-left .note-head {
-            background: linear-gradient(135deg, #7c4dff, #651fff, #512da8);
-            box-shadow: 0 2px 6px rgba(101,31,255,0.3);
+            background: linear-gradient(135deg, #9575cd, #7e57c2, #673ab7);
+            box-shadow: 0 3px 8px rgba(103,58,183,0.4);
         }
         .note-right .note-head {
-            background: linear-gradient(135deg, #536dfe, #304ffe, #1a237e);
-            box-shadow: 0 2px 6px rgba(48,79,254,0.3);
+            background: linear-gradient(135deg, #7986cb, #5c6bc0, #3f51b5);
+            box-shadow: 0 3px 8px rgba(63,81,181,0.4);
         }
         .note .note-stem {
             position: absolute;
-            right: 1px; top: -28px;
-            width: 3px; height: 30px;
+            right: 2px; top: -35px;
+            width: 4px; height: 38px;
             border-radius: 2px;
         }
         .note-left .note-stem {
-            background: linear-gradient(to top, #7c4dff, #b388ff);
+            background: linear-gradient(to top, #7e57c2, #b39ddb);
         }
         .note-right .note-stem {
-            background: linear-gradient(to top, #536dfe, #8c9eff);
+            background: linear-gradient(to top, #5c6bc0, #9fa8da);
         }
         .note .note-beam {
             position: absolute;
-            top: -28px;
-            height: 4px;
+            top: -35px;
+            height: 5px;
             border-radius: 2px;
         }
         .note-left .note-beam {
-            right: 1px; width: 28px;
-            background: #7c4dff;
-        }
-        .note-right .note-beam {
-            right: 1px; width: 22px;
-            background: #536dfe;
-            top: -20px;
+            right: 2px; width: 34px;
+            background: linear-gradient(90deg, #7e57c2, #5c6bc0);
         }
         .note .note-flag {
             position: absolute;
-            right: -1px; top: -28px;
-            width: 12px; height: 16px;
-            border-right: 3px solid;
-            border-top: 3px solid;
-            border-radius: 0 8px 0 0;
+            right: -2px; top: -35px;
+            width: 16px; height: 22px;
+            border-right: 4px solid;
+            border-top: 4px solid;
+            border-radius: 0 10px 0 0;
         }
         .note-left .note-flag {
-            border-color: #7c4dff;
+            border-color: #7e57c2;
         }
         .note-right .note-flag {
-            border-color: #536dfe;
-            top: -20px;
+            border-color: #5c6bc0;
+            top: -35px;
         }
         @keyframes logoGlow {
             0%, 100% { box-shadow: 0 15px 35px rgba(0,188,212,0.4), 0 0 60px rgba(0,188,212,0.3), inset 0 2px 0 rgba(255,255,255,0.3); }
